@@ -1,0 +1,50 @@
+body {
+    min-width: 180px;
+}
+
+.container {
+    padding: 2%;
+}
+
+.toggle_row, .icon_attribute {
+    margin-top: 5%;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.sidebar_toggle, .comment_toggle, .recommendation_toggle, .notification_toggle {
+    display: block;
+    float: right;
+    position: relative;
+    margin: 0;
+    left: 2%;
+    height: 16px;
+    width: 32px;
+    border-radius: 10px;
+    background-color: #ccc;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+.sidebar_toggle:after, .comment_toggle:after, .recommendation_toggle:after, .notification_toggle:after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+.sidebar_toggle:checked, .comment_toggle:checked, .recommendation_toggle:checked, .notification_toggle:checked {
+  	background-color: #2196F3;
+}
+.sidebar_toggle:checked:after, .comment_toggle:checked:after, .recommendation_toggle:checked:after, .notification_toggle:checked:after {
+    transform: translatex(14px);
+}
