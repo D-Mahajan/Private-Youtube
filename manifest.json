@@ -2,9 +2,9 @@
     "name": "uSurfer",
     "version": "1.0",
     "description": "Give the user an option to remove video suggestions, comments from the YouTube interface",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "incognito": "not_allowed",
-    "action": {
+    "browser_action": {
         "default_icon": {            
             "16": "src/images/padlock.png",   
             "24": "src/images/padlock.png",   
