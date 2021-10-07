@@ -1,9 +1,9 @@
 {
-    "description": "Allows the user to remove History, Caches, Cookies",
+    "description": "Allows the user to remove history, caches, cookies",
     "manifest_version": 2,
-    "name": "Delete Everything",
+    "name": "Private Youtube Delete",
     "version": "1.0",
-    "homepage_url": "https://github.com/MXS786",
+   
     "icons": {
         "32": "icons/logo_32.png",
         "64": "icons/logo_64.png",

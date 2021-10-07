@@ -1,5 +1,5 @@
 html {
-    background:#018DED url(http://unsplash.it/1500/1000?image=881);
+    background:#018DED url(https://astarios.com/wp-content/uploads/2020/05/home_banner1.jpg);
     background-size:cover;
     font-family:'helvetica neue';
     text-align: center;
@@ -8,6 +8,7 @@ html {
 body {
     width: 25em;
     font-family: "Open Sans Light", sans-serif;
+    color: white;
     font-size: 0.9em;
     font-weight: 300;
 }
