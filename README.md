@@ -10,5 +10,7 @@
 4. Load Temporary Add-on.
 5. Select manifest.json.
 
-## To Do
-1. Disable Auto Play. 
+## Developer installation on Chrome
+1. Go to Settings -> More Tools -> Extensions.
+2. Enable Developer mode.
+3. Upload repository folder using Load unpacked button.
