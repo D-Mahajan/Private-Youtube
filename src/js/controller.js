@@ -4,39 +4,93 @@ var_notification = false;
 var_recommendation = false;
 var_sidebar = false;
 
-function hide_notfications() {
-    console.log("hide notification called");
+function hide_notfications(hide = true) {
     notification_element = document.querySelector(".notification-button-style-type-default");
     if(notification_element) {
-        notification_element.remove();
+        if(hide) {
+            notification_element.style.display = "none";
+        } else {
+            notification_element.style.display = "block";
+        }
     } 
 }
 
-function hide_sidebar() {
-    console.log("hide sidebar called");
+function hide_sidebar(hide = true) {
     sidebar_element = document.querySelector("#guide-content");
     if(sidebar_element) {
-        sidebar_element.style.display = "none";
+        if(hide) {
+            sidebar_element.style.display = "none";
+        } else {
+            sidebar_element.style.display = "block";
+        }
     }
 }
 
-function hide_recommendations() {
+function hide_recommendations(hide = true) {
     recommendation_element = document.querySelector("#related");
     if(recommendation_element) {
-        recommendation_element.style.display = "none";
+        if(hide) {
+            recommendation_element.style.display = "none";
+        } else {
+            recommendation_element.style.display = "block";
+        }
     }
 }
 
-function hide_comments() {
+function hide_comments(hide = true) {
     comments_element = document.querySelector("#comments");
     if(comments_element) {
-        comments_element.style.display = "none";
+        if(hide) {
+            comments_element.style.display = "none";
+        } else {
+            comments_element.style.display = "block";
+        }
+    }
+}
+
+function disable_autoplay(disable = true) {
+    autoplay_element = document.querySelector(".ytp-autonav-toggle-button");
+    if(disable) {
+        autoplay_element.ariaChecked = "false";
+    } else {
+        autoplay_element.ariaChecked = "true";
+    }
+}
+
+function hide_autoplay(hide = true) {
+    autoplay_element = document.querySelector(".ytp-autonav-toggle-button");
+    if(autoplay_element) {
+        if(hide) {
+            autoplay_element.style.display = "none";
+        } else {
+            autoplay_element.style.display = "block";
+        }
+    } 
+}
+
+function hide_endscreen(hide = true) {
+    endscreen_element = document.querySelector(".ytp-endscreen-content");
+    if(endscreen_element) {
+        if(hide) {
+            endscreen_element.style.display = "none";
+        } else {
+            endscreen_element.style.display = "block";
+        }
+    }
+}
+
+function hide_mainpage_rec(hide = true) {
+    mainpage_element = document.querySelector("#primary");
+    if(mainpage_element) {
+        if(hide) {
+            mainpage_element.style.display = "none";
+        } else {
+            mainpage_element.style.display = "block";
+        }
     }
 }
 
 function modify_content() {
-    console.log("Modify Content called");
-
     chrome.storage.local.get("display_sidebar", function(data) {
         if(data.display_sidebar) {
             var_sidebar = true;
@@ -69,33 +123,22 @@ function modify_content() {
         }
     });
 
-    // console.log("var_sidebar value: "+var_sidebar)
-    // console.log("var_notification value: "+var_notification)
-    // console.log("var_recommendation value: "+var_recommendation)
-    // console.log("var_comments value: "+var_comments)
-
-    if(var_notification) {
-        hide_notfications();
-    }
-    if(var_sidebar) {
-        hide_sidebar();
-    }
+    hide_notfications(var_notification);
+    hide_sidebar(var_sidebar);
     if(window.location.href.indexOf("watch?v=") !== -1) {
         // console.log("Video in url");
-        if(var_recommendation) {
-            hide_recommendations();
-        }
-        if(var_comments) {
-            hide_comments();
-        }
+        hide_recommendations(var_recommendation);
+        disable_autoplay(var_recommendation);
+        hide_autoplay(var_recommendation);
+        hide_endscreen(var_recommendation);
+        hide_comments(var_comments);
     } else {
         // console.log("No video in url")
-        document.querySelector("#primary").style.display = "none";
+        hide_mainpage_rec(var_recommendation);
     }
 }
 
+modify_content()
 setInterval(function() {
     modify_content()
 }, 200);
-
-// ytp-autonav-toggle-button
